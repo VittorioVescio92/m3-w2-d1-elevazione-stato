@@ -12,7 +12,6 @@ import scifiBooks from "./books/scifi.json";
 import { lazy, Suspense } from "react";
 
 const libri = [...fantasyBooks, ...historyBooks, ...horrorBooks, ...romanceBooks, ...scifiBooks];
-
 const books = libri.sort(() => Math.random() - 0.5);
 
 const LazyBookList = lazy(() => import("./components/BookList"));

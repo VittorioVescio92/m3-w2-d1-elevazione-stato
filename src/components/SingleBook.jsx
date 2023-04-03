@@ -24,7 +24,6 @@ class SingleBook extends Component {
         <Card className="text-center" onClick={this.clickedBook} id={clicked}>
           <Card.Img id="img" variant="top" src={this.props.cover} />
           <Card.Body>
-            {this.state.selected && <CommentArea asin={this.props.asin} />}
             <Card.Title className="fs-5">{this.props.title}</Card.Title>
             <Card.Text>
               <p className="fw-bold text-danger">{this.props.category}</p>
@@ -32,6 +31,7 @@ class SingleBook extends Component {
             <Button variant="success">
               Acquista <Badge className="bg-primary">€ {this.props.price}</Badge>
             </Button>
+            {this.state.selected && <CommentArea asin={this.props.asin} />}
           </Card.Body>
         </Card>
       </Col>

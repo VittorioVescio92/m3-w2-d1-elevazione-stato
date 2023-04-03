@@ -1,14 +1,20 @@
 import { Component } from "react";
-import { ListGroupItem } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
+import SingleComment from "./SingleComment";
 
 class CommentsList extends Component {
   render() {
     return (
-      <ListGroupItem className="d-flex flex-column align-items-center">
-        <span className="my-1">Author: {this.props.author}</span>
-        <span className="my-1">Comment: {this.props.comment}</span>
-        <span className="my-1">Rate: {this.props.rate}</span>
-      </ListGroupItem>
+      <ListGroup className="d-flex flex-column align-items-center">
+        {this.props.comments.map(comment => (
+          <SingleComment
+            key={comment.elementId}
+            author={comment.author}
+            comment={comment.comment}
+            rate={comment.rate}
+          />
+        ))}
+      </ListGroup>
     );
   }
 }
