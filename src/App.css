@@ -5,3 +5,7 @@
 #logo {
   height: 30px;
 }
+
+#clicked {
+  transform: scale(1.1);
+}
