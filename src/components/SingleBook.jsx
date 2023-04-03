@@ -4,6 +4,7 @@ import { Col, Card, Button, Badge } from "react-bootstrap";
 class SingleBook extends Component {
   state = {
     selected: false,
+    asin: "",
   };
 
   clickedBook = () => {
