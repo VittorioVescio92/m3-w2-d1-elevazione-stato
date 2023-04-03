@@ -9,18 +9,22 @@ import historyBooks from "./books/history.json";
 import horrorBooks from "./books/horror.json";
 import romanceBooks from "./books/romance.json";
 import scifiBooks from "./books/scifi.json";
-import BookList from "./components/BookList";
+import { lazy, Suspense } from "react";
 
 const libri = [...fantasyBooks, ...historyBooks, ...horrorBooks, ...romanceBooks, ...scifiBooks];
 
 const books = libri.sort(() => Math.random() - 0.5);
+
+const LazyBookList = lazy(() => import("./components/BookList"));
 
 function App() {
   return (
     <>
       <MyNav />
       <MyHero />
-      <BookList selectedBooks={books} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyBookList selectedBooks={books} />
+      </Suspense>
       <MyFooter />
     </>
   );

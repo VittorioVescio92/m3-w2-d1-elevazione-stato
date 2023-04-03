@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Col, Card, Button, Badge } from "react-bootstrap";
+import CommentArea from "./CommentArea";
 
 class SingleBook extends Component {
   state = {
@@ -9,9 +10,9 @@ class SingleBook extends Component {
 
   clickedBook = () => {
     if (this.state.selected) {
-      this.setState({ selected: false });
+      this.setState({ selected: false, asin: "" });
     } else {
-      this.setState({ selected: true });
+      this.setState({ selected: true, asin: this.props.asin });
     }
   };
 
@@ -23,6 +24,7 @@ class SingleBook extends Component {
         <Card className="text-center" onClick={this.clickedBook} id={clicked}>
           <Card.Img id="img" variant="top" src={this.props.cover} />
           <Card.Body>
+            {this.state.selected && <CommentArea asin={this.props.asin} />}
             <Card.Title className="fs-5">{this.props.title}</Card.Title>
             <Card.Text>
               <p className="fw-bold text-danger">{this.props.category}</p>
