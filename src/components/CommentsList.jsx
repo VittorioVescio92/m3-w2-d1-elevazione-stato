@@ -8,15 +8,9 @@ class CommentsList extends Component {
       <>
         <ListGroup className="d-flex flex-column align-items-center">
           {this.props.comments.map(comment => (
-            <SingleComment
-              key={comment.elementId}
-              author={comment.author}
-              comment={comment.comment}
-              rate={comment.rate}
-            />
+            <SingleComment key={comment._Id} author={comment.author} comment={comment.comment} rate={comment.rate} />
           ))}
         </ListGroup>
-        <AddComment />
       </>
     );
   }

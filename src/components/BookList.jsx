@@ -39,6 +39,7 @@ class BookList extends Component {
                   category={selectedBook.category}
                   price={selectedBook.price}
                   asin={selectedBook.asin}
+                  key={selectedBook.asin}
                 />
               ))}
             </>
@@ -55,6 +56,7 @@ class BookList extends Component {
                     category={selectedBook.category}
                     price={selectedBook.price}
                     asin={selectedBook.asin}
+                    key={selectedBook.asin}
                   />
                 ))}
             </>

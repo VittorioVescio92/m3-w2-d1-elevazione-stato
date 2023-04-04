@@ -31,9 +31,9 @@ class SingleBook extends Component {
             <Button variant="success">
               Acquista <Badge className="bg-primary">€ {this.props.price}</Badge>
             </Button>
-            {this.state.selected && <CommentArea asin={this.props.asin} />}
           </Card.Body>
         </Card>
+        {this.state.selected && <CommentArea asin={this.props.asin} />}
       </Col>
     );
   }
