@@ -21,8 +21,8 @@ class SingleBook extends Component {
 
     return (
       <Col sm={12} md={4} xl={2} key={this.props.asin} className="mt-3">
-        <Card className="text-center" onClick={this.clickedBook} id={clicked}>
-          <Card.Img id="img" variant="top" src={this.props.cover} />
+        <Card className="text-center">
+          <Card.Img className="img" variant="top" src={this.props.cover} onClick={this.clickedBook} id={clicked} />
           <Card.Body>
             <Card.Title className="fs-5">{this.props.title}</Card.Title>
             <Card.Text>
