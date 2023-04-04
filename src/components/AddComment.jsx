@@ -5,16 +5,18 @@ const token =
 
 class AddComment extends Component {
   state = {
-    comment: "",
-    rate: 1,
-    elementId: this.props.asin,
+    commentObj: {
+      comment: "",
+      rate: 1,
+      elementId: this.props.asin,
+    },
   };
 
   sendComment = event => {
     event.preventDefault();
     fetch(`https://striveschool-api.herokuapp.com/api/comments/`, {
       method: "POST",
-      body: JSON.stringify(this.state),
+      body: JSON.stringify(this.state.commentObj),
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -40,11 +42,11 @@ class AddComment extends Component {
             <Form.Control
               placeholder="Inserisci il commento"
               as="textarea"
-              value={this.state.comment.comment}
+              value={this.state.commentObj.comment}
               onChange={event => {
                 this.setState({
-                  comment: {
-                    ...this.state.comment,
+                  commentObj: {
+                    ...this.state.commentObj,
                     comment: event.target.value,
                   },
                 });
@@ -57,10 +59,13 @@ class AddComment extends Component {
             <Form.Label>Voto:</Form.Label>
             <Form.Control
               as="select"
-              value={this.state.rate}
+              value={this.state.commentObj.rate}
               onChange={event => {
                 this.setState({
-                  rate: event.target.value,
+                  commentObj: {
+                    ...this.state.commentObj,
+                    rate: event.target.value,
+                  },
                 });
               }}
             >

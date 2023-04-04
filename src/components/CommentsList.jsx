@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { ListGroup } from "react-bootstrap";
 import SingleComment from "./SingleComment";
-import AddComment from "./AddComment";
 class CommentsList extends Component {
   render() {
     return (
